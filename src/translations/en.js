@@ -1,0 +1,93 @@
+export const translations = {
+  // App
+  appName: 'Madrasa',
+  dashboard: 'Dashboard',
+  students: 'Students',
+  payments: 'Payments',
+  reports: 'Reports',
+  settings: 'Settings',
+  
+  // Dashboard
+  totalCollected: 'Total Collected',
+  totalOutstanding: 'Total Outstanding',
+  totalStudents: 'Total Students',
+  recentPayments: 'Recent Payments',
+  overdueStudents: 'Overdue Students',
+  noOverdueStudents: 'No overdue students',
+  viewAll: 'View All',
+  
+  // Students
+  addStudent: 'Add Student',
+  editStudent: 'Edit Student',
+  deleteStudent: 'Delete Student',
+  studentName: 'Student Name',
+  gradeLevel: 'Grade Level',
+  academicPerformance: 'Academic Performance',
+  paymentStatus: 'Payment Status',
+  remainingBalance: 'Remaining Balance',
+  totalPaid: 'Total Paid',
+  actions: 'Actions',
+  search: 'Search...',
+  filterByGrade: 'Filter by Grade',
+  allGrades: 'All Grades',
+  paid: 'Paid',
+  partial: 'Partial',
+  unpaid: 'Unpaid',
+  save: 'Save',
+  cancel: 'Cancel',
+  confirmDelete: 'Are you sure you want to delete this student?',
+  
+  // Payments
+  recordPayment: 'Record Payment',
+  paymentAmount: 'Payment Amount',
+  paymentMethod: 'Payment Method',
+  cash: 'Cash',
+  bankTransfer: 'Bank Transfer',
+  transactionNumber: 'Transaction Number',
+  bankName: 'Bank Name',
+  transferDate: 'Transfer Date',
+  receivedBy: 'Received By',
+  paymentDate: 'Payment Date',
+  notes: 'Notes',
+  paymentHistory: 'Payment History',
+  noPayments: 'No payments',
+  
+  // Reports
+  summaryByGrade: 'Summary by Grade',
+  unpaidStudents: 'Unpaid Students',
+  exportExcel: 'Export to Excel',
+  importExcel: 'Import from Excel',
+  grade: 'Grade',
+  numberOfStudents: 'Number of Students',
+  collectedAmount: 'Collected Amount',
+  outstandingAmount: 'Outstanding Amount',
+  
+  // Settings
+  tuitionFees: 'Tuition Fees',
+  grade10: 'Grade 10',
+  grade11: 'Grade 11',
+  grade12: 'Grade 12',
+  schoolYear: 'School Year',
+  currency: 'Currency',
+  saveSettings: 'Save Settings',
+  settingsSaved: 'Settings saved successfully',
+  
+  // Grades
+  'grade-10': 'Grade 10',
+  'grade-11': 'Grade 11',
+  'grade-12': 'Grade 12',
+  
+  // Common
+  yes: 'Yes',
+  no: 'No',
+  delete: 'Delete',
+  edit: 'Edit',
+  close: 'Close',
+  loading: 'Loading...',
+  noData: 'No data',
+  name: 'Name',
+  date: 'Date',
+  amount: 'Amount',
+  method: 'Method',
+  status: 'Status',
+};

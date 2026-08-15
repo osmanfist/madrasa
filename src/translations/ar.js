@@ -1,0 +1,93 @@
+export const translations = {
+  // App
+  appName: 'مدرسة',
+  dashboard: 'لوحة التحكم',
+  students: 'الطلاب',
+  payments: 'المدفوعات',
+  reports: 'التقارير',
+  settings: 'الإعدادات',
+  
+  // Dashboard
+  totalCollected: 'إجمالي المحصل',
+  totalOutstanding: 'المبلغ المتبقي',
+  totalStudents: 'عدد الطلاب',
+  recentPayments: 'المدفوعات الأخيرة',
+  overdueStudents: 'الطلاب المتأخرين',
+  noOverdueStudents: 'لا يوجد طلاب متأخرين',
+  viewAll: 'عرض الكل',
+  
+  // Students
+  addStudent: 'إضافة طالب',
+  editStudent: 'تعديل طالب',
+  deleteStudent: 'حذف طالب',
+  studentName: 'اسم الطالب',
+  gradeLevel: 'الصف',
+  academicPerformance: 'الأداء الأكاديمي',
+  paymentStatus: 'حالة الدفع',
+  remainingBalance: 'المبلغ المتبقي',
+  totalPaid: 'المبلغ المدفوع',
+  actions: 'إجراءات',
+  search: 'بحث...',
+  filterByGrade: 'تصفية حسب الصف',
+  allGrades: 'جميع الصفوف',
+  paid: 'مدفوع',
+  partial: 'جزئي',
+  unpaid: 'غير مدفوع',
+  save: 'حفظ',
+  cancel: 'إلغاء',
+  confirmDelete: 'هل أنت متأكد من حذف هذا الطالب؟',
+  
+  // Payments
+  recordPayment: 'تسجيل دفعة',
+  paymentAmount: 'مبلغ الدفعة',
+  paymentMethod: 'طريقة الدفع',
+  cash: 'نقداً',
+  bankTransfer: 'تحويل بنكي',
+  transactionNumber: 'رقم العملية',
+  bankName: 'اسم البنك',
+  transferDate: 'تاريخ التحويل',
+  receivedBy: 'استلم من',
+  paymentDate: 'تاريخ الدفع',
+  notes: 'ملاحظات',
+  paymentHistory: 'سجل المدفوعات',
+  noPayments: 'لا توجد مدفوعات',
+  
+  // Reports
+  summaryByGrade: 'ملخص حسب الصف',
+  unpaidStudents: 'الطلاب غير المسددين',
+  exportExcel: 'تصدير إلى Excel',
+  importExcel: 'استيراد من Excel',
+  grade: 'الصف',
+  numberOfStudents: 'عدد الطلاب',
+  collectedAmount: 'المبلغ المحصل',
+  outstandingAmount: 'المبلغ المتبقي',
+  
+  // Settings
+  tuitionFees: 'الرسوم الدراسية',
+  grade10: 'الصف العاشر',
+  grade11: 'الصف الحادي عشر',
+  grade12: 'الصف الثاني عشر',
+  schoolYear: 'السنة الدراسية',
+  currency: 'العملة',
+  saveSettings: 'حفظ الإعدادات',
+  settingsSaved: 'تم حفظ الإعدادات بنجاح',
+  
+  // Grades
+  'grade-10': 'الصف العاشر',
+  'grade-11': 'الصف الحادي عشر',
+  'grade-12': 'الصف الثاني عشر',
+  
+  // Common
+  yes: 'نعم',
+  no: 'لا',
+  delete: 'حذف',
+  edit: 'تعديل',
+  close: 'إغلاق',
+  loading: 'جاري التحميل...',
+  noData: 'لا توجد بيانات',
+  name: 'الاسم',
+  date: 'التاريخ',
+  amount: 'المبلغ',
+  method: 'الطريقة',
+  status: 'الحالة',
+};

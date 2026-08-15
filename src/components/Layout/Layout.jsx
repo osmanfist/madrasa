@@ -1,0 +1,62 @@
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
+import './Layout.css';
+
+function Layout({ children }) {
+  const { language, toggleLanguage, t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { path: '/', label: t('dashboard'), icon: '📊' },
+    { path: '/students', label: t('students'), icon: '👨‍🎓' },
+    { path: '/payments', label: t('payments'), icon: '💰' },
+    { path: '/reports', label: t('reports'), icon: '📈' },
+    { path: '/settings', label: t('settings'), icon: '⚙️' },
+  ];
+
+  return (
+    <div className="app-container">
+      <header className="header">
+        <div className="header-content">
+          <button 
+            className="menu-toggle" 
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
+          <h1 className="app-title">{t('appName')}</h1>
+          <button 
+            className="language-toggle"
+            onClick={toggleLanguage}
+          >
+            {language === 'ar' ? 'English' : 'العربية'}
+          </button>
+        </div>
+      </header>
+
+      <div className="main-container">
+        <nav className={`sidebar ${menuOpen ? 'open' : ''}`}>
+          {navItems.map(item => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="nav-icon">{item.icon}</span>
+              <span className="nav-label">{item.label}</span>
+            </Link>
+          ))}
+        </nav>
+
+        <main className="content">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default Layout;
