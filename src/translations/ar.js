@@ -114,4 +114,12 @@ export const translations = {
   confirmDeletePayment: 'هل أنت متأكد من حذف هذه الدفعة؟',
 
   viewDetails: 'عرض التفاصيل',
+
+    // Reports
+  totalTuition: 'إجمالي الرسوم',
+  collectionRate: 'نسبة التحصيل',
+  total: 'المجموع',
+  outstandingPayments: 'المدفوعات المتبقية',
+  noOutstandingPayments: 'لا توجد مدفوعات متبقية',
+  exportPDF: 'تصدير PDF',
 };

@@ -1,0 +1,292 @@
+.reports-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.report-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-excel,
+.btn-print {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-excel {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-excel:hover {
+  background: #229954;
+}
+
+.btn-print {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-print:hover {
+  background: #c0392b;
+}
+
+.report-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.tab-btn {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover {
+  color: #2c3e50;
+  background: #f8f9fa;
+}
+
+.tab-btn.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+.report-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+}
+
+.report-title {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-table th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: start;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.report-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  color: #555;
+}
+
+.report-table tfoot td {
+  background: #f8f9fa;
+  font-weight: 600;
+  border-top: 2px solid #dee2e6;
+}
+
+.grade-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.student-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.collected {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.outstanding {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.paid-text {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.collection-rate {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.rate-bar {
+  flex: 1;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rate-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  transition: width 0.3s;
+}
+
+.rate-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 45px;
+  text-align: right;
+}
+
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-partial {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-unpaid {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #95a5a6;
+}
+
+/* Print Header - hidden on screen, visible on print */
+.print-header {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-header {
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .print-header h2 {
+    margin: 0;
+    color: #000;
+  }
+
+  .print-header p {
+    margin: 0.5rem 0;
+    color: #333;
+  }
+
+  .report-card {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .report-table th {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .report-table td {
+    color: #000;
+  }
+
+  .status-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .report-actions {
+    width: 100%;
+  }
+
+  .btn-excel,
+  .btn-print {
+    flex: 1;
+  }
+
+  .report-tabs {
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+  }
+
+  .report-card {
+    padding: 1rem;
+  }
+
+  .report-table {
+    font-size: 0.9rem;
+  }
+
+  .report-table th,
+  .report-table td {
+    padding: 0.7rem 0.5rem;
+  }
+}

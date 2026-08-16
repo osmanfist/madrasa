@@ -115,4 +115,12 @@ export const translations = {
   confirmDeletePayment: 'Are you sure you want to delete this payment?',
 
   viewDetails: 'View Details',
+
+    // Reports
+  totalTuition: 'Total Tuition',
+  collectionRate: 'Collection Rate',
+  total: 'Total',
+  outstandingPayments: 'Outstanding Payments',
+  noOutstandingPayments: 'No outstanding payments',
+  exportPDF: 'Export PDF',
 };
