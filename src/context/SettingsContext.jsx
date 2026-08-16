@@ -6,9 +6,9 @@ const DEFAULT_SETTINGS = {
   schoolYear: '2025-2026',
   currency: 'SDG',
   tuitionFees: {
-    'first-year': 10000,
-    'second-year': 12000,
-    'third-year': 15000,
+    'first-year': 800000,
+    'second-year': 900000,
+    'third-year': 1000000,
   }
 };
 
