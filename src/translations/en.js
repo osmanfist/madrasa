@@ -100,4 +100,17 @@ export const translations = {
   tuitionFeesSettings: 'Tuition fees settings',
   schoolYearSettings: 'School year settings',
   currencySettings: 'Currency settings',
+
+    // Payment specific
+  searchStudent: 'Search student...',
+  allMethods: 'All Methods',
+  selectStudent: 'Select student',
+  enterValidAmount: 'Enter a valid amount',
+  enterAmount: 'Enter amount',
+  amountExceedsBalance: 'Amount exceeds remaining balance',
+  enterReceiverName: 'Enter receiver name',
+  enterTransactionNumber: 'Enter transaction number',
+  enterBankName: 'Enter bank name',
+  selectBank: 'Select bank',
+  confirmDeletePayment: 'Are you sure you want to delete this payment?',
 };

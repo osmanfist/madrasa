@@ -22,7 +22,6 @@ export const translations = {
   deleteStudent: 'حذف طالب',
   studentName: 'اسم الطالب',
   gradeLevel: 'الصف',
-  academicPerformance: 'الأداء الأكاديمي',
   paymentStatus: 'حالة الدفع',
   remainingBalance: 'المبلغ المتبقي',
   totalPaid: 'المبلغ المدفوع',
@@ -100,4 +99,17 @@ export const translations = {
   tuitionFeesSettings: 'إعدادات الرسوم الدراسية',
   schoolYearSettings: 'إعدادات السنة الدراسية',
   currencySettings: 'إعدادات العملة',
+
+    // Payment specific
+  searchStudent: 'بحث عن طالب...',
+  allMethods: 'جميع الطرق',
+  selectStudent: 'اختر الطالب',
+  enterValidAmount: 'أدخل مبلغ صحيح',
+  enterAmount: 'أدخل المبلغ',
+  amountExceedsBalance: 'المبلغ يتجاوز الرصيد المتبقي',
+  enterReceiverName: 'أدخل اسم المستلم',
+  enterTransactionNumber: 'أدخل رقم العملية',
+  enterBankName: 'أدخل اسم البنك',
+  selectBank: 'اختر البنك',
+  confirmDeletePayment: 'هل أنت متأكد من حذف هذه الدفعة؟',
 };
