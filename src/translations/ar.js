@@ -1,6 +1,6 @@
 export const translations = {
   // App
-  appName: 'محاسبة مدارس المثانى والمعارج',
+  appName: 'نظام محاسبة مدرسة المثاني والمعارج الثانوية',
   dashboard: 'لوحة التحكم',
   students: 'الطلاب',
   payments: 'المدفوعات',
@@ -15,6 +15,7 @@ export const translations = {
   overdueStudents: 'الطلاب المتأخرين',
   noOverdueStudents: 'لا يوجد طلاب متأخرين',
   viewAll: 'عرض الكل',
+  quickActions: 'إجراءات سريعة',
   
   // Students
   addStudent: 'إضافة طالب',

@@ -1,0 +1,359 @@
+.dashboard-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+.school-year {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.stat-collected .stat-icon {
+  background: #d4edda;
+}
+
+.stat-outstanding .stat-icon {
+  background: #f8d7da;
+}
+
+.stat-students .stat-icon {
+  background: #d1ecf1;
+}
+
+.stat-rate .stat-icon {
+  background: #fff3cd;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Payment Status Summary */
+.status-summary {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-dot.status-paid {
+  background: #27ae60;
+}
+
+.status-dot.status-partial {
+  background: #f39c12;
+}
+
+.status-dot.status-unpaid {
+  background: #e74c3c;
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+/* Grade Progress */
+.grade-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.grade-progress-item {
+  position: relative;
+}
+
+.grade-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.grade-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.grade-stats {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.progress-percentage {
+  position: absolute;
+  bottom: -1.2rem;
+  right: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+[dir="rtl"] .progress-percentage {
+  right: auto;
+  left: 0;
+}
+
+/* Dashboard Columns */
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Recent List */
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.recent-item:hover {
+  background: #f8f9fa;
+}
+
+.recent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.recent-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.recent-meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.recent-amount {
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.overdue-amount {
+  font-weight: 600;
+  color: #e74c3c;
+}
+
+.empty-state {
+  text-align: center;
+  color: #95a5a6;
+  padding: 2rem 0;
+}
+
+.view-all-btn {
+  width: 100%;
+  padding: 0.7rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #3498db;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.view-all-btn:hover {
+  background: #e9ecef;
+  border-color: #3498db;
+}
+
+/* Quick Actions */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.quick-action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.quick-action-card:hover {
+  border-color: #3498db;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quick-action-icon {
+  font-size: 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .grade-stats {
+    font-size: 0.8rem;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-summary {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}

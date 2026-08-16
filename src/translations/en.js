@@ -1,6 +1,6 @@
 export const translations = {
   // App
-  appName: 'MMS Accounting',
+  appName: 'MMS Edu Accounting',
   dashboard: 'Dashboard',
   students: 'Students',
   payments: 'Payments',
@@ -15,6 +15,7 @@ export const translations = {
   overdueStudents: 'Overdue Students',
   noOverdueStudents: 'No overdue students',
   viewAll: 'View All',
+  quickActions: 'Quick Actions',
   
   // Students
   addStudent: 'Add Student',
