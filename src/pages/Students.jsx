@@ -89,10 +89,10 @@ function Students() {
           onChange={(e) => setGradeFilter(e.target.value)}
           className="filter-select"
         >
-          <option value="all">{t('allGrades')}</option>
-          <option value="grade-10">{t('grade-10')}</option>
-          <option value="grade-11">{t('grade-11')}</option>
-          <option value="grade-12">{t('grade-12')}</option>
+            <option value="all">{t('allGrades')}</option>
+            <option value="first-year">{t('first-year')}</option>
+            <option value="second-year">{t('second-year')}</option>
+            <option value="third-year">{t('third-year')}</option>
         </select>
 
         <select 

@@ -64,18 +64,17 @@ export const translations = {
   
   // Settings
   tuitionFees: 'الرسوم الدراسية',
-  grade10: 'الصف العاشر',
-  grade11: 'الصف الحادي عشر',
-  grade12: 'الصف الثاني عشر',
-  schoolYear: 'السنة الدراسية',
+  firstYear: 'السنة الأولى',
+  secondYear: 'السنة الثانية',
+  thirdYear: 'السنة الثالثة',
   currency: 'العملة',
   saveSettings: 'حفظ الإعدادات',
   settingsSaved: 'تم حفظ الإعدادات بنجاح',
   
-  // Grades
-  'grade-10': 'الصف العاشر',
-  'grade-11': 'الصف الحادي عشر',
-  'grade-12': 'الصف الثاني عشر',
+   // Grades
+  'first-year': 'السنة الأولى',
+  'second-year': 'السنة الثانية',
+  'third-year': 'السنة الثالثة',
   
   // Common
   yes: 'نعم',

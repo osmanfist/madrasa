@@ -9,7 +9,7 @@ function StudentForm({ student, onClose }) {
   
   const [formData, setFormData] = useState({
     name: student?.name || '',
-    gradeLevel: student?.gradeLevel || 'grade-10',
+    gradeLevel: student?.gradeLevel || 'first-year',
     academicPercentage: student?.academicPercentage || 0,
   });
 
@@ -78,9 +78,9 @@ function StudentForm({ student, onClose }) {
               value={formData.gradeLevel}
               onChange={handleChange}
             >
-              <option value="grade-10">{t('grade-10')}</option>
-              <option value="grade-11">{t('grade-11')}</option>
-              <option value="grade-12">{t('grade-12')}</option>
+              <option value="first-year">{t('first-year')}</option>
+              <option value="second-year">{t('second-year')}</option>
+              <option value="third-year">{t('third-year')}</option>
             </select>
           </div>
 

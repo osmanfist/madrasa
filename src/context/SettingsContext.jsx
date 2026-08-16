@@ -3,12 +3,12 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const SettingsContext = createContext();
 
 const DEFAULT_SETTINGS = {
-  schoolYear: '2024-2025',
-  currency: 'SAR',
+  schoolYear: '2025-2026',
+  currency: 'SDG',
   tuitionFees: {
-    'grade-10': 10000,
-    'grade-11': 12000,
-    'grade-12': 15000,
+    'first-year': 10000,
+    'second-year': 12000,
+    'third-year': 15000,
   }
 };
 

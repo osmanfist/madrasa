@@ -64,18 +64,18 @@ export const translations = {
   
   // Settings
   tuitionFees: 'Tuition Fees',
-  grade10: 'Grade 10',
-  grade11: 'Grade 11',
-  grade12: 'Grade 12',
+  firstYear: 'First Year',
+  secondYear: 'Second Year',
+  thirdYear: 'Third Year',
   schoolYear: 'School Year',
   currency: 'Currency',
   saveSettings: 'Save Settings',
   settingsSaved: 'Settings saved successfully',
   
   // Grades
-  'grade-10': 'Grade 10',
-  'grade-11': 'Grade 11',
-  'grade-12': 'Grade 12',
+  'first-year': 'First Year',
+  'second-year': 'Second Year',
+  'third-year': 'Third Year',
   
   // Common
   yes: 'Yes',
