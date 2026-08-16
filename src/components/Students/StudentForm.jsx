@@ -10,7 +10,6 @@ function StudentForm({ student, onClose }) {
   const [formData, setFormData] = useState({
     name: student?.name || '',
     gradeLevel: student?.gradeLevel || 'first-year',
-    academicPercentage: student?.academicPercentage || 0,
   });
 
   const [errors, setErrors] = useState({});
@@ -19,9 +18,6 @@ function StudentForm({ student, onClose }) {
     const newErrors = {};
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
-    }
-    if (formData.academicPercentage < 0 || formData.academicPercentage > 100) {
-      newErrors.academicPercentage = 'Percentage must be between 0 and 100';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -43,7 +39,7 @@ function StudentForm({ student, onClose }) {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'academicPercentage' ? Number(value) : value
+      [name]: value
     }));
   };
 
@@ -82,23 +78,6 @@ function StudentForm({ student, onClose }) {
               <option value="second-year">{t('second-year')}</option>
               <option value="third-year">{t('third-year')}</option>
             </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="academicPercentage">{t('academicPerformance')} (%)</label>
-            <input
-              type="number"
-              id="academicPercentage"
-              name="academicPercentage"
-              value={formData.academicPercentage}
-              onChange={handleChange}
-              min="0"
-              max="100"
-              className={errors.academicPercentage ? 'error' : ''}
-            />
-            {errors.academicPercentage && (
-              <span className="error-text">{errors.academicPercentage}</span>
-            )}
           </div>
 
           <div className="form-actions">

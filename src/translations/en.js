@@ -22,7 +22,6 @@ export const translations = {
   deleteStudent: 'Delete Student',
   studentName: 'Student Name',
   gradeLevel: 'Grade Level',
-  academicPerformance: 'Academic Performance',
   paymentStatus: 'Payment Status',
   remainingBalance: 'Remaining Balance',
   totalPaid: 'Total Paid',

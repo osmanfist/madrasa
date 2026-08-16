@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useStudents } from '../context/StudentContext';
 import { useSettings } from '../context/SettingsContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -88,17 +88,19 @@ function Students() {
           value={gradeFilter} 
           onChange={(e) => setGradeFilter(e.target.value)}
           className="filter-select"
+          style={{ color: '#333', backgroundColor: 'white' }}
         >
-            <option value="all">{t('allGrades')}</option>
-            <option value="first-year">{t('first-year')}</option>
-            <option value="second-year">{t('second-year')}</option>
-            <option value="third-year">{t('third-year')}</option>
+          <option value="all">{t('allGrades')}</option>
+          <option value="first-year">{t('first-year')}</option>
+          <option value="second-year">{t('second-year')}</option>
+          <option value="third-year">{t('third-year')}</option>
         </select>
 
         <select 
           value={statusFilter} 
           onChange={(e) => setStatusFilter(e.target.value)}
           className="filter-select"
+          style={{ color: '#333', backgroundColor: 'white' }}
         >
           <option value="all">{t('paymentStatus')}</option>
           <option value="paid">{t('paid')}</option>
@@ -114,7 +116,6 @@ function Students() {
             <tr>
               <th>{t('studentName')}</th>
               <th>{t('gradeLevel')}</th>
-              <th>{t('academicPerformance')}</th>
               <th>{t('totalPaid')}</th>
               <th>{t('remainingBalance')}</th>
               <th>{t('paymentStatus')}</th>
@@ -124,7 +125,7 @@ function Students() {
           <tbody>
             {sortedStudents.length === 0 ? (
               <tr>
-                <td colSpan="7" className="no-data">{t('noData')}</td>
+                <td colSpan="6" className="no-data">{t('noData')}</td>
               </tr>
             ) : (
               sortedStudents.map(student => {
@@ -137,15 +138,6 @@ function Students() {
                   <tr key={student.id}>
                     <td className="student-name">{student.name}</td>
                     <td>{t(student.gradeLevel)}</td>
-                    <td>
-                      <div className="percentage-bar">
-                        <div 
-                          className="percentage-fill" 
-                          style={{ width: `${student.academicPercentage || 0}%` }}
-                        />
-                        <span className="percentage-text">{student.academicPercentage || 0}%</span>
-                      </div>
-                    </td>
                     <td>{formatCurrency(totalPaid, settings.currency)}</td>
                     <td className={remaining > 0 ? 'remaining' : 'paid-text'}>
                       {formatCurrency(remaining, settings.currency)}

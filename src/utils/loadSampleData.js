@@ -4,7 +4,6 @@ export const loadSampleData = () => {
       id: '1',
       name: 'أحمد محمد',
       gradeLevel: 'first-year',
-      academicPercentage: 85,
       payments: [
         {
           id: 'p1',
@@ -22,7 +21,6 @@ export const loadSampleData = () => {
       id: '2',
       name: 'فلان فرتكان العِلان',
       gradeLevel: 'second-year',
-      academicPercentage: 85,
       payments: [
         {
           id: 'p2',
@@ -45,7 +43,6 @@ export const loadSampleData = () => {
       id: '3',
       name: 'علي مقطع الدُمك',
       gradeLevel: 'third-year',
-      academicPercentage: 53,
       payments: [],
       createdAt: '2024-09-01',
       updatedAt: '2024-09-01'
@@ -54,7 +51,6 @@ export const loadSampleData = () => {
       id: '4',
       name: 'فاطمة ترطيبة الحفري',
       gradeLevel: 'first-year',
-      academicPercentage: 95,
       payments: [
         {
           id: 'p3',
@@ -72,7 +68,6 @@ export const loadSampleData = () => {
       id: '5',
       name: ' عمر إبراهيم فلس',
       gradeLevel: 'second-year',
-      academicPercentage: 88,
       payments: [],
       createdAt: '2024-09-01',
       updatedAt: '2024-09-01'
@@ -81,7 +76,6 @@ export const loadSampleData = () => {
       id: '6',
       name: 'فاتح ففتي ففتي',
       gradeLevel: 'third-year',
-      academicPercentage: 50,
       payments: [
         {
           id: 'p4',
