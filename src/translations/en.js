@@ -113,4 +113,6 @@ export const translations = {
   enterBankName: 'Enter bank name',
   selectBank: 'Select bank',
   confirmDeletePayment: 'Are you sure you want to delete this payment?',
+
+  viewDetails: 'View Details',
 };

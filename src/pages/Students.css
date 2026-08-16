@@ -228,3 +228,134 @@
     flex-direction: column;
   }
 }
+
+/* Selected student row */
+.student-row {
+  transition: background 0.2s;
+}
+
+.student-row.selected {
+  background: #e3f2fd !important;
+  border-left: 4px solid #2196f3;
+}
+
+.student-row:hover {
+  background: #f0f4f8;
+}
+
+/* Quick Action Menu */
+.quick-action-menu {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  z-index: 900;
+  min-width: 350px;
+  max-width: 90%;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.quick-action-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.quick-action-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.quick-action-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  color: #666;
+}
+
+.info-item strong {
+  color: #2c3e50;
+}
+
+.quick-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quick-action-btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.quick-action-btn:first-child {
+  background: #2196f3;
+  color: white;
+}
+
+.quick-action-btn:first-child:hover:not(:disabled) {
+  background: #1976d2;
+}
+
+.quick-action-btn:first-child:disabled {
+  background: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.quick-action-btn:nth-child(2) {
+  background: #ffc107;
+  color: #000;
+}
+
+.quick-action-btn:nth-child(2):hover {
+  background: #ffb300;
+}
+
+.quick-action-btn.danger {
+  background: #f44336;
+  color: white;
+}
+
+.quick-action-btn.danger:hover {
+  background: #d32f2f;
+}
+
+/* Mobile responsive for quick action menu */
+@media (max-width: 768px) {
+  .quick-action-menu {
+    bottom: 1rem;
+    min-width: 300px;
+    max-width: calc(100% - 2rem);
+  }
+}

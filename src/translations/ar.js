@@ -112,4 +112,6 @@ export const translations = {
   enterBankName: 'أدخل اسم البنك',
   selectBank: 'اختر البنك',
   confirmDeletePayment: 'هل أنت متأكد من حذف هذه الدفعة؟',
+
+  viewDetails: 'عرض التفاصيل',
 };
