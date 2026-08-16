@@ -1,0 +1,125 @@
+.settings-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h2 {
+  color: #2c3e50;
+}
+
+.testing-tools {
+  background: #fff;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testing-tools h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.testing-tools p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.testing-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn-sample {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-sample:hover {
+  background: #ffb300;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.message-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message-danger {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.coming-soon {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.coming-soon h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.coming-soon ul {
+  list-style: none;
+  padding: 0;
+}
+
+.coming-soon li {
+  padding: 0.5rem 0;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .testing-buttons {
+    flex-direction: column;
+  }
+
+  .btn-sample,
+  .btn-danger {
+    width: 100%;
+  }
+}

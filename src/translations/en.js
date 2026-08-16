@@ -90,4 +90,15 @@ export const translations = {
   amount: 'Amount',
   method: 'Method',
   status: 'Status',
+
+    // Testing Tools
+  testingTools: 'Testing Tools',
+  testingToolsDescription: 'Use these tools to test the app with sample data',
+  loadSampleData: 'Load Sample Data',
+  clearAllData: 'Clear All Data',
+  settingsComingSoon: 'Settings Coming Soon',
+  settingsComingSoonDescription: 'The following features will be available soon:',
+  tuitionFeesSettings: 'Tuition fees settings',
+  schoolYearSettings: 'School year settings',
+  currencySettings: 'Currency settings',
 };

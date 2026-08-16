@@ -89,4 +89,15 @@ export const translations = {
   amount: 'المبلغ',
   method: 'الطريقة',
   status: 'الحالة',
+
+    // Testing Tools
+  testingTools: 'أدوات الاختبار',
+  testingToolsDescription: 'استخدم هذه الأدوات لاختبار التطبيق ببيانات تجريبية',
+  loadSampleData: 'تحميل بيانات تجريبية',
+  clearAllData: 'مسح جميع البيانات',
+  settingsComingSoon: 'الإعدادات قريباً',
+  settingsComingSoonDescription: 'الميزات التالية ستتوفر قريباً:',
+  tuitionFeesSettings: 'إعدادات الرسوم الدراسية',
+  schoolYearSettings: 'إعدادات السنة الدراسية',
+  currencySettings: 'إعدادات العملة',
 };
