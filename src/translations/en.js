@@ -1,6 +1,6 @@
 export const translations = {
   // App
-  appName: 'Madrasa',
+  appName: 'MMS Accounting',
   dashboard: 'Dashboard',
   students: 'Students',
   payments: 'Payments',

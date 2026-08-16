@@ -1,6 +1,6 @@
 export const translations = {
   // App
-  appName: 'مدرسة',
+  appName: 'محاسبة مدارس المثانى والمعارج',
   dashboard: 'لوحة التحكم',
   students: 'الطلاب',
   payments: 'المدفوعات',
