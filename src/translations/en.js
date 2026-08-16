@@ -1,5 +1,6 @@
 export const translations = {
   // App
+  welcomeMessage: 'School Payment Management System',
   appName: 'MMS Edu Accounting',
   dashboard: 'Dashboard',
   students: 'Students',

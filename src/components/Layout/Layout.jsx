@@ -26,7 +26,18 @@ function Layout({ children }) {
           >
             ☰
           </button>
-          <h1 className="app-title">{t('appName')}</h1>
+          <div className="app-title-container">
+            <img 
+              src="/madrasa-icon.svg" 
+              alt="Madrasa Icon" 
+              className="app-icon"
+              onError={(e) => {
+                // Fallback if SVG fails to load
+                e.target.style.display = 'none';
+              }}
+            />
+            <h1 className="app-title">{t('appName')}</h1>
+          </div>
           <button 
             className="language-toggle"
             onClick={toggleLanguage}
