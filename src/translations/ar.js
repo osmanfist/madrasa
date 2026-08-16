@@ -122,4 +122,19 @@ export const translations = {
   outstandingPayments: 'المدفوعات المتبقية',
   noOutstandingPayments: 'لا توجد مدفوعات متبقية',
   exportPDF: 'تصدير PDF',
+
+    // Settings Page
+  tuitionFeesDescription: 'حدد الرسوم الدراسية لكل سنة دراسية',
+  schoolYearDescription: 'حدد السنة الدراسية الحالية',
+  dataManagement: 'إدارة البيانات',
+  dataManagementDescription: 'قم بعمل نسخة احتياطية من بياناتك أو استعادتها',
+  exportData: 'تصدير البيانات',
+  importData: 'استيراد البيانات',
+  confirmImport: 'سيتم استبدال جميع البيانات الحالية. هل أنت متأكد؟',
+  dataExported: 'تم تصدير البيانات بنجاح',
+  dataImported: 'تم استيراد البيانات بنجاح',
+  importError: 'خطأ في استيراد البيانات. يرجى التحقق من الملف.',
+  systemInfo: 'معلومات النظام',
+  totalPayments: 'إجمالي المدفوعات',
+  version: 'الإصدار',
 };

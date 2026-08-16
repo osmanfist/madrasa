@@ -123,4 +123,19 @@ export const translations = {
   outstandingPayments: 'Outstanding Payments',
   noOutstandingPayments: 'No outstanding payments',
   exportPDF: 'Export PDF',
+
+    // Settings Page
+  tuitionFeesDescription: 'Set tuition fees for each academic year',
+  schoolYearDescription: 'Set the current school year',
+  dataManagement: 'Data Management',
+  dataManagementDescription: 'Backup or restore your data',
+  exportData: 'Export Data',
+  importData: 'Import Data',
+  confirmImport: 'This will replace all current data. Are you sure?',
+  dataExported: 'Data exported successfully',
+  dataImported: 'Data imported successfully',
+  importError: 'Error importing data. Please check the file.',
+  systemInfo: 'System Info',
+  totalPayments: 'Total Payments',
+  version: 'Version',
 };
