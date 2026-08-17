@@ -503,107 +503,110 @@ function Reports() {
         </div>
       )}
 
-      {/* Student Payments List */}
-      {activeTab === 'payments-list' && (
-        <div className="report-section">
-          <div className="report-card">
-            <h3 className="report-title"> {t('studentPaymentsList')}</h3>
-            <p className="report-description">
-              {t('studentPaymentsDescription')}
-            </p>
-            
-            {studentsWithPayments.length === 0 ? (
-              <div className="no-data">{t('noStudents')}</div>
-            ) : (
-              <div className="student-payments-container">
-                {studentsWithPayments.map((student, index) => (
-                  <div key={student.id} className="student-payment-card">
-                    <div className="student-payment-header">
-                      <div className="student-info">
-                        <h4 className="student-name-header">
-                          {index + 1}. {student.name}
-                        </h4>
-                        <div className="student-meta">
-                          <span className="meta-tag grade-tag">
-                           {t(student.gradeLevel)}
-                          </span>
-                          <span className={`meta-tag status-tag status-${student.status}`}>
-                            {t(student.status)}
-                          </span>
-                          <span className="meta-tag payment-count">
-                           {student.paymentCount} {t('payments')}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="student-financial-summary">
-                        <div className="financial-item">
-                          <span className="label">{t('totalTuition')}:</span>
-                          <span className="value">{formatCurrency(student.tuition, settings.currency)}</span>
-                        </div>
-                        <div className="financial-item">
-                          <span className="label">{t('totalPaid')}:</span>
-                          <span className="value collected">{formatCurrency(student.totalPaid, settings.currency)}</span>
-                        </div>
-                        <div className="financial-item">
-                          <span className="label">{t('remainingBalance')}:</span>
-                          <span className={`value ${student.remaining > 0 ? 'outstanding' : 'paid-text'}`}>
-                            {formatCurrency(student.remaining, settings.currency)}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {student.payments.length > 0 ? (
-                      <div className="payment-history">
-                        <table className="payment-history-table">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>{t('amount')}</th>
-                              <th>{t('method')}</th>
-                              <th>{t('date')}</th>
-                              <th>{t('receivedBy')}</th>
-                              <th>{t('notes')}</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {student.payments.map((payment, idx) => (
-                              <tr key={payment.id}>
-                                <td>{idx + 1}</td>
-                                <td className="payment-amount">
-                                  {formatCurrency(payment.amount, settings.currency)}
-                                </td>
-                                <td>
-                                  <span className={`method-badge method-${payment.method}`}>
-                                    {payment.method === 'cash' ? '' : ''} {t(payment.method)}
-                                    {payment.method === 'bank' && payment.bankDetails && (
-                                      <span className="bank-details-tooltip">
-                                        {' '}({payment.bankDetails.bankName})
-                                      </span>
-                                    )}
-                                  </span>
-                                </td>
-                                <td>{formatDate(payment.date, language)}</td>
-                                <td>{payment.receivedBy || '-'}</td>
-                                <td className="notes-cell">{payment.notes || '-'}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    ) : (
-                      <div className="no-payments-message">
-                        
-                        <p>{t('noPaymentsRecorded')}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
+      {/* Student Payments List - New Report */}
+{activeTab === 'payments-list' && (
+  <div className="report-section">
+    <div className="report-card">
+      <h3 className="report-title">{t('studentPaymentsList')}</h3>
+      <p className="report-description">
+        {t('studentPaymentsDescription')}
+      </p>
+      
+      {studentsWithPayments.length === 0 ? (
+        <div className="no-data">{t('noStudents')}</div>
+      ) : (
+        <div className="student-payments-container">
+          {studentsWithPayments.map((student, index) => (
+            <div key={student.id} className="student-payment-box">
+              {/* Student Header */}
+              <div className="student-box-header">
+                <div className="student-box-title">
+                  <span className="student-number">{index + 1}.</span>
+                  <h4 className="student-box-name">{student.name}</h4>
+                </div>
+                <div className="student-box-meta">
+                  <span className="meta-tag grade-tag">
+                    {t(student.gradeLevel)}
+                  </span>
+                  <span className={`meta-tag status-tag status-${student.status}`}>
+                    {t(student.status)}
+                  </span>
+                </div>
               </div>
-            )}
-          </div>
+
+              {/* Student Financial Summary */}
+              <div className="student-box-summary">
+                <div className="summary-item">
+                  <span className="summary-label">{t('totalTuition')}</span>
+                  <span className="summary-value">{formatCurrency(student.tuition, settings.currency)}</span>
+                </div>
+                <div className="summary-item">
+                  <span className="summary-label">{t('totalPaid')}</span>
+                  <span className="summary-value collected">{formatCurrency(student.totalPaid, settings.currency)}</span>
+                </div>
+                <div className="summary-item">
+                  <span className="summary-label">{t('remainingBalance')}</span>
+                  <span className={`summary-value ${student.remaining > 0 ? 'outstanding' : 'paid-text'}`}>
+                    {formatCurrency(student.remaining, settings.currency)}
+                  </span>
+                </div>
+                <div className="summary-item">
+                  <span className="summary-label">{t('payments')}</span>
+                  <span className="summary-value">{student.paymentCount}</span>
+                </div>
+              </div>
+
+              {/* Payment History Table */}
+              {student.payments.length > 0 ? (
+                <div className="student-box-table">
+                  <table className="payment-detail-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>{t('amount')}</th>
+                        <th>{t('method')}</th>
+                        <th>{t('date')}</th>
+                        <th>{t('receivedBy')}</th>
+                        <th>{t('notes')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {student.payments.map((payment, idx) => (
+                        <tr key={payment.id}>
+                          <td className="payment-number">{idx + 1}</td>
+                          <td className="payment-amount-cell">
+                            {formatCurrency(payment.amount, settings.currency)}
+                          </td>
+                          <td>
+                            <span className={`method-badge method-${payment.method}`}>
+                              {payment.method === 'cash' ? '💵' : '🏦'} {t(payment.method)}
+                              {payment.method === 'bank' && payment.bankDetails && (
+                                <span className="bank-name-small">
+                                  {' '}({payment.bankDetails.bankName})
+                                </span>
+                              )}
+                            </span>
+                          </td>
+                          <td>{formatDate(payment.date, language)}</td>
+                          <td>{payment.receivedBy || '-'}</td>
+                          <td className="notes-cell">{payment.notes || '-'}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="no-payments-message">
+                  <p>{t('noPaymentsRecorded')}</p>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
+    </div>
+  </div>
+)}
 
       {/* Charts Tab */}
       {activeTab === 'charts' && (

@@ -501,3 +501,415 @@
     print-color-adjust: exact;
   }
 }
+
+/* Student Payments List - Clean Organized Styles */
+
+.report-description {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.student-payments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual Student Box */
+.student-payment-box {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.student-payment-box:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Box Header */
+.student-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.student-box-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.student-number {
+  font-weight: 700;
+  color: #6c757d;
+  font-size: 0.9rem;
+  min-width: 24px;
+}
+
+.student-box-name {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.student-box-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  padding: 0.25rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.meta-tag.grade-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.meta-tag.status-tag.status-paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.meta-tag.status-tag.status-partial {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.meta-tag.status-tag.status-unpaid {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Student Financial Summary */
+.student-box-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 1.5rem;
+  border-right: 1px solid #dee2e6;
+  background: #fafafa;
+}
+
+.summary-item:last-child {
+  border-right: none;
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+}
+
+.summary-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.summary-value.collected {
+  color: #27ae60;
+}
+
+.summary-value.outstanding {
+  color: #e74c3c;
+}
+
+.summary-value.paid-text {
+  color: #27ae60;
+}
+
+/* Payment Detail Table */
+.student-box-table {
+  padding: 0;
+  overflow-x: auto;
+}
+
+.payment-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.payment-detail-table thead {
+  background: #f8f9fa;
+}
+
+.payment-detail-table th {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.payment-detail-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+  vertical-align: middle;
+}
+
+.payment-detail-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.payment-detail-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.payment-number {
+  font-weight: 600;
+  color: #6c757d;
+  text-align: center;
+  width: 40px;
+}
+
+.payment-amount-cell {
+  font-weight: 600;
+  color: #27ae60;
+  white-space: nowrap;
+}
+
+/* Method Badge in Table */
+.method-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.method-cash {
+  background: #d4edda;
+  color: #155724;
+}
+
+.method-bank {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.bank-name-small {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.notes-cell {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* No payments message */
+.no-payments-message {
+  padding: 1.5rem;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.95rem;
+  background: #fafafa;
+}
+
+.no-payments-message p {
+  margin: 0;
+}
+
+/* RTL Support */
+[dir="rtl"] .summary-item {
+  border-right: none;
+  border-left: 1px solid #dee2e6;
+}
+
+[dir="rtl"] .summary-item:last-child {
+  border-left: none;
+}
+
+[dir="rtl"] .payment-detail-table th,
+[dir="rtl"] .payment-detail-table td {
+  text-align: right;
+}
+
+[dir="rtl"] .student-number {
+  margin-left: 0.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .student-box-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+  }
+
+  .student-box-title {
+    width: 100%;
+  }
+
+  .student-box-name {
+    font-size: 1rem;
+  }
+
+  .student-box-meta {
+    width: 100%;
+  }
+
+  .student-box-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-item {
+    padding: 0.6rem 1rem;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .summary-item:nth-child(odd) {
+    border-right: 1px solid #dee2e6;
+  }
+
+  .summary-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  [dir="rtl"] .summary-item:nth-child(odd) {
+    border-right: none;
+    border-left: 1px solid #dee2e6;
+  }
+
+  .payment-detail-table {
+    font-size: 0.8rem;
+  }
+
+  .payment-detail-table th,
+  .payment-detail-table td {
+    padding: 0.5rem 0.7rem;
+  }
+
+  .payment-detail-table th {
+    font-size: 0.7rem;
+  }
+
+  .notes-cell {
+    max-width: 80px;
+  }
+
+  .method-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .bank-name-small {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-box-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-item {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .summary-item:nth-child(odd) {
+    border-right: 1px solid #dee2e6;
+  }
+
+  .summary-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .summary-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  [dir="rtl"] .summary-item:nth-child(odd) {
+    border-right: none;
+    border-left: 1px solid #dee2e6;
+  }
+
+  .payment-detail-table {
+    font-size: 0.7rem;
+  }
+
+  .payment-detail-table th,
+  .payment-detail-table td {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .payment-number {
+    width: 30px;
+    min-width: 30px;
+  }
+
+  .student-box-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .student-payment-box {
+    break-inside: avoid;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    margin-bottom: 1rem;
+  }
+
+  .student-box-header {
+    background: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .payment-detail-table thead {
+    background: #e9ecef !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .meta-tag {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .summary-item {
+    background: #fafafa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

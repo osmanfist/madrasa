@@ -15,7 +15,6 @@ function Settings() {
   const [schoolYear, setSchoolYear] = useState(settings.schoolYear);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
-  const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
     setTuitionFees(settings.tuitionFees);
@@ -47,7 +46,7 @@ function Settings() {
   };
 
   const handleLoadSampleData = () => {
-    if (confirm('⚠️ This will replace all existing data with sample data. Are you sure?')) {
+    if (window.confirm('⚠️ This will replace all existing data with sample data. Are you sure?')) {
       const result = loadSampleData();
       showMessage(`✅ Loaded ${result.students} sample students successfully!`, 'success');
       setTimeout(() => {
@@ -57,8 +56,8 @@ function Settings() {
   };
 
   const handleClearAllData = () => {
-    if (confirm('⚠️ This will delete ALL data from this browser. This cannot be undone. Are you sure?')) {
-      if (confirm('Are you REALLY sure? All students and payments will be deleted.')) {
+    if (window.confirm('⚠️ This will delete ALL data from this browser. This cannot be undone. Are you sure?')) {
+      if (window.confirm('Are you REALLY sure? All students and payments will be deleted.')) {
         localStorage.removeItem('madrasa-students');
         localStorage.removeItem('madrasa-settings');
         showMessage('🗑️ All data cleared successfully!', 'danger');
@@ -78,7 +77,7 @@ function Settings() {
     const file = event.target.files[0];
     if (!file) return;
 
-    if (confirm(t('confirmImport'))) {
+    if (window.confirm(t('confirmImport'))) {
       const reader = new FileReader();
       reader.onload = (e) => {
         try {
