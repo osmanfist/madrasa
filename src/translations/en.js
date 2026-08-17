@@ -92,7 +92,7 @@ export const translations = {
   method: 'Method',
   status: 'Status',
 
-    // Testing Tools
+  // Testing Tools
   testingTools: 'Testing Tools',
   testingToolsDescription: 'Use these tools to test the app with sample data',
   loadSampleData: 'Load Sample Data',
@@ -103,7 +103,7 @@ export const translations = {
   schoolYearSettings: 'School year settings',
   currencySettings: 'Currency settings',
 
-    // Payment specific
+  // Payment specific
   searchStudent: 'Search student...',
   allMethods: 'All Methods',
   selectStudent: 'Select student',
@@ -118,7 +118,7 @@ export const translations = {
 
   viewDetails: 'View Details',
 
-    // Reports
+  // Reports
   totalTuition: 'Total Tuition',
   collectionRate: 'Collection Rate',
   total: 'Total',
@@ -126,7 +126,7 @@ export const translations = {
   noOutstandingPayments: 'No outstanding payments',
   exportPDF: 'Export PDF',
 
-    // Settings Page
+  // Settings Page
   tuitionFeesDescription: 'Set tuition fees for each academic year',
   schoolYearDescription: 'Set the current school year',
   dataManagement: 'Data Management',
@@ -140,4 +140,21 @@ export const translations = {
   systemInfo: 'System Info',
   totalPayments: 'Total Payments',
   version: 'Version',
+
+  // Student Payments List Report (NEW)
+  studentPaymentsList: 'Student Payments List',
+  studentPaymentsDescription: 'View all students with their complete payment details',
+  noPaymentsRecorded: 'No payments recorded for this student',
+  noStudents: 'No students found',
+
+  // Add to the translations object
+"charts": "Charts & Analytics",
+"financialSummary": "Financial Summary",
+"paymentStatusDistribution": "Payment Status Distribution",
+"collectionByGrade": "Collection by Grade",
+"collectionRateTrend": "Collection Rate Trend",
+"paymentMethodDistribution": "Payment Method Distribution",
+"quickStats": "Quick Stats",
+
 };
+

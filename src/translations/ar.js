@@ -47,7 +47,7 @@ export const translations = {
   transactionNumber: 'رقم العملية',
   bankName: 'اسم البنك',
   transferDate: 'تاريخ التحويل',
-  receivedBy: 'استلم من',
+  receivedBy: 'المستلم',
   paymentDate: 'تاريخ الدفع',
   notes: 'ملاحظات',
   paymentHistory: 'سجل المدفوعات',
@@ -91,7 +91,7 @@ export const translations = {
   method: 'الطريقة',
   status: 'الحالة',
 
-    // Testing Tools
+  // Testing Tools
   testingTools: 'أدوات الاختبار',
   testingToolsDescription: 'استخدم هذه الأدوات لاختبار التطبيق ببيانات تجريبية',
   loadSampleData: 'تحميل بيانات تجريبية',
@@ -102,7 +102,7 @@ export const translations = {
   schoolYearSettings: 'إعدادات السنة الدراسية',
   currencySettings: 'إعدادات العملة',
 
-    // Payment specific
+  // Payment specific
   searchStudent: 'بحث عن طالب...',
   allMethods: 'جميع الطرق',
   selectStudent: 'اختر الطالب',
@@ -117,7 +117,7 @@ export const translations = {
 
   viewDetails: 'عرض التفاصيل',
 
-    // Reports
+  // Reports
   totalTuition: 'إجمالي الرسوم',
   collectionRate: 'نسبة التحصيل',
   total: 'المجموع',
@@ -125,7 +125,7 @@ export const translations = {
   noOutstandingPayments: 'لا توجد مدفوعات متبقية',
   exportPDF: 'تصدير PDF',
 
-    // Settings Page
+  // Settings Page
   tuitionFeesDescription: 'حدد الرسوم الدراسية لكل سنة دراسية',
   schoolYearDescription: 'حدد السنة الدراسية الحالية',
   dataManagement: 'إدارة البيانات',
@@ -139,4 +139,21 @@ export const translations = {
   systemInfo: 'معلومات النظام',
   totalPayments: 'إجمالي المدفوعات',
   version: 'الإصدار',
+
+  // Student Payments List Report (NEW)
+  studentPaymentsList: 'كشف حسابات الطلاب',
+  studentPaymentsDescription: 'عرض جميع الطلاب مع تفاصيل المدفوعات الكاملة لكل طالب',
+  noPaymentsRecorded: 'لا توجد مدفوعات مسجلة لهذا الطالب',
+  noStudents: 'لا يوجد طلاب',
+  schoolYear: 'السنة الدراسية',
+
+  // Add to the translations object
+"charts": "الرسوم البيانية والتحليلات",
+"financialSummary": "الملخص المالي",
+"paymentStatusDistribution": "توزيع حالة الدفع",
+"collectionByGrade": "التحصيل حسب الصف",
+"collectionRateTrend": "اتجاه نسبة التحصيل",
+"paymentMethodDistribution": "توزيع طرق الدفع",
+"quickStats": "إحصائيات سريعة",
+
 };
