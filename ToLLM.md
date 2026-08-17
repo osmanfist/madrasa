@@ -380,7 +380,7 @@ vercel --prod
 3. Keep all translations
 4. Update all documentation
 5. Test thoroughly before deploying
-```
+
 
 ## **Commit and Deploy**
 
