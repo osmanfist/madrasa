@@ -156,4 +156,8 @@ export const translations = {
 "paymentMethodDistribution": "توزيع طرق الدفع",
 "quickStats": "إحصائيات سريعة",
 
+"contactUs": "اتصل بنا",
+"leadProgrammer": "المبرمج الرئيسي : عثمان مصطفى",
+"ceo": "الرئيس التنفيذي : محمد عمر",
+"allRightsReserved": "جميع الحقوق محفوظة",
 };

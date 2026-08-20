@@ -66,6 +66,44 @@ function Layout({ children }) {
           {children}
         </main>
       </div>
+      {/* Footer */}
+<footer className="footer">
+  <div className="footer-content">
+    <div className="footer-section">
+      <h4 className="footer-title">{t('contactUs')}</h4>
+      <div className="contact-item">
+        <span className="contact-label">{t('leadProgrammer')}:</span>
+        <a 
+          href="https://wa.me/249126726239" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="contact-link"
+        >
+          <span className="contact-icon">💻</span>
+          <span className="contact-number">+249 126 7262 39</span>
+        </a>
+      </div>
+      <div className="contact-item">
+        <span className="contact-label">{t('ceo')}:</span>
+        <a 
+          href="https://wa.me/249111233014" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="contact-link"
+        >
+          <span className="contact-icon">👨‍💼</span>
+          <span className="contact-number">+249 111 23 3014</span>
+        </a>
+      </div>
+    </div>
+    <div className="footer-section">
+      <p className="footer-copyright">
+        © {new Date().getFullYear()} {t('appName')}. {t('allRightsReserved')}
+      </p>
+      <p className="footer-version">{t('version')} 1.0.0</p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }

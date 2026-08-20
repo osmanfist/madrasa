@@ -156,5 +156,9 @@ export const translations = {
 "paymentMethodDistribution": "Payment Method Distribution",
 "quickStats": "Quick Stats",
 
+"contactUs": "Contact Us",
+"leadProgrammer": "Lead Programmer : Osman Mustafa",
+"ceo": "CEO : Mohammed Omer",
+"allRightsReserved": "All Rights Reserved",
 };
 
