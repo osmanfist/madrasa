@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useStudents } from '../context/StudentContext';
 import { useSettings } from '../context/SettingsContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useSchoolLevel } from '../context/SchoolLevelContext';
 import { getTotalPaid, getRemainingBalance, getPaymentStatus, formatCurrency } from '../utils/calculations';
+import { SCHOOL_LEVELS, SCHOOL_LEVEL_KEYS } from '../utils/schoolLevels';
 import StudentForm from '../components/Students/StudentForm';
 import PaymentForm from '../components/Payments/PaymentForm';
 import './Students.css';
@@ -12,6 +14,7 @@ function Students() {
   const { students, deleteStudent } = useStudents();
   const { getTuitionFee, settings } = useSettings();
   const { t, language } = useLanguage();
+  const { activeLevel, getFilteredStudents } = useSchoolLevel();
   const navigate = useNavigate();
   
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,8 +27,11 @@ function Students() {
   const [showPaymentForm, setShowPaymentForm] = useState(false);
   const [paymentStudent, setPaymentStudent] = useState(null);
 
-  // Filter students
-  const filteredStudents = students.filter(student => {
+  // Base list already filtered by active school level
+  const levelStudents = getFilteredStudents(students);
+
+  // Filter students (within the current level scope)
+  const filteredStudents = levelStudents.filter(student => {
     const matchesSearch = student.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesGrade = gradeFilter === 'all' || student.gradeLevel === gradeFilter;
     
@@ -43,6 +49,12 @@ function Students() {
     a.name.localeCompare(b.name, language === 'ar' ? 'ar' : 'en')
   );
 
+  // Reset grade filter when the school level changes (avoid showing empty results)
+  // Using a simple effect-like pattern via key on the select element instead.
+  const handleLevelChange = () => {
+    // intentionally empty — the grade select's key resets it
+  };
+
   const handleAddStudent = () => {
     setEditingStudent(null);
     setShowForm(true);
@@ -51,14 +63,14 @@ function Students() {
   const handleEditStudent = (student) => {
     setEditingStudent(student);
     setShowForm(true);
-    setSelectedStudentId(null); // Close action menu
+    setSelectedStudentId(null);
   };
 
   const handleDeleteStudent = (studentId) => {
     if (confirmDelete === studentId) {
       deleteStudent(studentId);
       setConfirmDelete(null);
-      setSelectedStudentId(null); // Close action menu
+      setSelectedStudentId(null);
     } else {
       setConfirmDelete(studentId);
     }
@@ -72,16 +84,48 @@ function Students() {
   const handleRecordPayment = (student) => {
     setPaymentStudent(student);
     setShowPaymentForm(true);
-    setSelectedStudentId(null); // Close action menu
+    setSelectedStudentId(null);
   };
 
   const handleStudentClick = (studentId) => {
     if (selectedStudentId === studentId) {
-      setSelectedStudentId(null); // Deselect if clicked again
+      setSelectedStudentId(null);
     } else {
-      setSelectedStudentId(studentId); // Select student
-      setConfirmDelete(null); // Reset delete confirmation
+      setSelectedStudentId(studentId);
+      setConfirmDelete(null);
     }
+  };
+
+  // Build the grade filter options based on active level
+  const renderGradeOptions = () => {
+    if (activeLevel === 'all') {
+      // Show all grades grouped by level
+      return (
+        <>
+          <option value="all">{t('allGrades')}</option>
+          {SCHOOL_LEVEL_KEYS.map(levelKey => (
+            <optgroup key={levelKey} label={t(levelKey)}>
+              {SCHOOL_LEVELS[levelKey].grades.map(gradeKey => (
+                <option key={gradeKey} value={gradeKey}>
+                  {t(gradeKey)}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </>
+      );
+    }
+    // Show only grades for the active level
+    return (
+      <>
+        <option value="all">{t('allGrades')}</option>
+        {SCHOOL_LEVELS[activeLevel].grades.map(gradeKey => (
+          <option key={gradeKey} value={gradeKey}>
+            {t(gradeKey)}
+          </option>
+        ))}
+      </>
+    );
   };
 
   return (
@@ -104,15 +148,13 @@ function Students() {
         />
         
         <select 
+          key={activeLevel} /* Force re-mount when level changes → resets to 'all' */
           value={gradeFilter} 
           onChange={(e) => setGradeFilter(e.target.value)}
           className="filter-select"
           style={{ color: '#333', backgroundColor: 'white' }}
         >
-          <option value="all">{t('allGrades')}</option>
-          <option value="first-year">{t('first-year')}</option>
-          <option value="second-year">{t('second-year')}</option>
-          <option value="third-year">{t('third-year')}</option>
+          {renderGradeOptions()}
         </select>
 
         <select 
@@ -144,7 +186,9 @@ function Students() {
           <tbody>
             {sortedStudents.length === 0 ? (
               <tr>
-                <td colSpan="6" className="no-data">{t('noData')}</td>
+                <td colSpan="6" className="no-data">
+                  {activeLevel === 'all' ? t('noData') : t('noStudentsInLevel')}
+                </td>
               </tr>
             ) : (
               sortedStudents.map(student => {
@@ -197,7 +241,7 @@ function Students() {
         </table>
       </div>
 
-      {/* Quick Action Menu */}
+      {/* Quick Action Menu — unchanged */}
       {selectedStudentId && (() => {
         const student = students.find(s => s.id === selectedStudentId);
         if (!student) return null;

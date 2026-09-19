@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useStudents } from '../context/StudentContext';
 import { useSettings } from '../context/SettingsContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useSchoolLevel } from '../context/SchoolLevelContext';
 import { getTotalPaid, getRemainingBalance, formatCurrency, formatDate } from '../utils/calculations';
 import PaymentForm from '../components/Payments/PaymentForm';
 import './Payments.css';
@@ -10,6 +11,7 @@ function Payments() {
   const { students, getAllPayments, deletePayment } = useStudents();
   const { settings } = useSettings();
   const { t, language } = useLanguage();
+  const { activeLevel } = useSchoolLevel();
   
   const [showForm, setShowForm] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -18,8 +20,17 @@ function Payments() {
 
   const allPayments = getAllPayments();
 
-  // Filter payments
-  const filteredPayments = allPayments.filter(payment => {
+  // Filter payments by active school level first (via student lookup)
+  const levelPayments = allPayments.filter(payment => {
+    if (activeLevel === 'all') return true;
+    const student = students.find(s => s.id === payment.studentId);
+    if (!student) return false;
+    const studentLevel = student.schoolLevel || 'secondary';
+    return studentLevel === activeLevel;
+  });
+
+  // Then apply search + method filters
+  const filteredPayments = levelPayments.filter(payment => {
     const matchesSearch = payment.studentName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesMethod = methodFilter === 'all' || payment.method === methodFilter;
     return matchesSearch && matchesMethod;
@@ -85,7 +96,9 @@ function Payments() {
           <tbody>
             {filteredPayments.length === 0 ? (
               <tr>
-                <td colSpan="8" className="no-data">{t('noPayments')}</td>
+                <td colSpan="8" className="no-data">
+                  {activeLevel === 'all' ? t('noPayments') : t('noPayments')}
+                </td>
               </tr>
             ) : (
               filteredPayments.map(payment => {
