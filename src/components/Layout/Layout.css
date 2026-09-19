@@ -53,6 +53,133 @@
   background: #46586b;
 }
 
+/* ===== School Level Tabs Bar ===== */
+.level-tabs-bar {
+  background: #34495e;
+  border-bottom: 2px solid #1abc9c;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  /* Fixed height so layout doesn't jump when scrolling horizontally */
+  -webkit-overflow-scrolling: touch;
+}
+
+.level-tabs-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.level-tabs-bar::-webkit-scrollbar-thumb {
+  background: #1abc9c;
+  border-radius: 3px;
+}
+
+.level-tabs-bar::-webkit-scrollbar-track {
+  background: #2c3e50;
+}
+
+.level-tabs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  padding: 0 1rem;
+  gap: 0;
+  min-width: max-content; /* Ensures tabs don't wrap; enables scroll */
+}
+
+.level-tab {
+  background: transparent;
+  border: none;
+  color: #bdc3c7;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  font-family: inherit;
+}
+
+.level-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ecf0f1;
+}
+
+.level-tab.active {
+  color: white;
+  background: rgba(26, 188, 156, 0.15);
+}
+
+.level-tab.active::after {
+  /* Bottom indicator line */
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 3px;
+  background: #1abc9c;
+}
+
+.level-tab-label {
+  font-weight: 600;
+}
+
+.level-tab-count {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  min-width: 2rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.level-tab.active .level-tab-count {
+  opacity: 1;
+  background: rgba(26, 188, 156, 0.3);
+}
+
+/* ===== Mobile adjustments ===== */
+@media (max-width: 768px) {
+  .level-tabs-container {
+    padding: 0 0.5rem;
+  }
+
+  .level-tab {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+    gap: 0.35rem;
+  }
+
+  .level-tab-count {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    min-width: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-tab {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .level-tab-label {
+    font-weight: 500;
+  }
+
+  .level-tab-count {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.35rem;
+  }
+}
+
 .main-container {
   display: flex;
   flex: 1;
