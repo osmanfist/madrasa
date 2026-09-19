@@ -204,6 +204,35 @@
   color: #95a5a6;
 }
 
+/* ===== Level Grouping in Summary Table ===== */
+.level-group-row {
+  background: #f0f4f8;
+}
+
+.level-group-header-cell {
+  padding: 0.6rem 1rem !important;
+  font-weight: 700;
+  color: #1abc9c;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-top: 2px solid #1abc9c;
+  border-bottom: 1px solid #cfd6dd;
+  background: #f0f4f8;
+}
+
+[dir="rtl"] .level-group-header-cell {
+  text-align: right;
+}
+
+@media print {
+  .level-group-header-cell {
+    background: #e8f0f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 /* Print Header - hidden on screen, visible on print */
 .print-header {
   display: none;

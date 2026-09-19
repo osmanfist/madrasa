@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useStudents } from '../context/StudentContext';
 import { useSettings } from '../context/SettingsContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useSchoolLevel } from '../context/SchoolLevelContext';
+import { SCHOOL_LEVELS, SCHOOL_LEVEL_KEYS } from '../utils/schoolLevels';
 import { 
   getTotalPaid, 
   getRemainingBalance, 
@@ -45,35 +47,56 @@ ChartJS.register(
 function Reports() {
   const { students } = useStudents();
   const { settings } = useSettings();
-  const { t, language } = useLanguage();
+    const { t, language } = useLanguage();
+  const { activeLevel, getFilteredStudents } = useSchoolLevel();
   
   const [activeTab, setActiveTab] = useState('summary'); // 'summary' | 'outstanding' | 'payments-list' | 'charts'
 
-  // Calculate summary by grade
-  const gradeSummary = [
-    { grade: 'first-year', label: t('first-year') },
-    { grade: 'second-year', label: t('second-year') },
-    { grade: 'third-year', label: t('third-year') },
-  ].map(({ grade, label }) => {
-    const gradeStudents = students.filter(s => s.gradeLevel === grade);
-    const totalTuition = gradeStudents.reduce((sum, s) => sum + (settings.tuitionFees[grade] || 0), 0);
-    const totalCollected = gradeStudents.reduce((sum, s) => sum + getTotalPaid(s), 0);
-    const totalOutstanding = totalTuition - totalCollected;
-    const collectionRate = totalTuition > 0 ? (totalCollected / totalTuition) * 100 : 0;
+  // Scope all report data to the active school level
+  const scopedStudents = getFilteredStudents(students);
 
-    return {
-      grade,
-      label,
-      studentCount: gradeStudents.length,
-      totalTuition,
-      totalCollected,
-      totalOutstanding,
-      collectionRate
-    };
-  });
+    // Build grade-level rows from a given student list + grade keys
+  const buildGradeRows = (studentList, gradeKeys) =>
+    gradeKeys.map(gradeKey => {
+      const gradeStudents = studentList.filter(s => s.gradeLevel === gradeKey);
+      const totalTuition = gradeStudents.reduce((sum, s) => sum + (settings.tuitionFees[gradeKey] || 0), 0);
+      const totalCollected = gradeStudents.reduce((sum, s) => sum + getTotalPaid(s), 0);
+      const totalOutstanding = totalTuition - totalCollected;
+      const collectionRate = totalTuition > 0 ? (totalCollected / totalTuition) * 100 : 0;
 
-  // Get outstanding students
-  const outstandingStudents = students
+      return {
+        grade: gradeKey,
+        label: t(gradeKey),
+        studentCount: gradeStudents.length,
+        totalTuition,
+        totalCollected,
+        totalOutstanding,
+        collectionRate,
+      };
+    });
+
+  // Flat list of grade rows (used in charts, footers, "Summary by Grade" under All Levels)
+  const gradeSummary = activeLevel === 'all'
+    ? SCHOOL_LEVEL_KEYS.flatMap(levelKey =>
+        buildGradeRows(scopedStudents, SCHOOL_LEVELS[levelKey].grades)
+      )
+    : buildGradeRows(scopedStudents, SCHOOL_LEVELS[activeLevel].grades);
+
+  // Grouped summary (used to render section headers per level when activeLevel === 'all')
+  const groupedGradeSummary = activeLevel === 'all'
+    ? SCHOOL_LEVEL_KEYS.map(levelKey => ({
+        levelKey,
+        levelLabel: t(levelKey),
+        rows: buildGradeRows(scopedStudents, SCHOOL_LEVELS[levelKey].grades),
+      }))
+    : [{
+        levelKey: activeLevel,
+        levelLabel: t(activeLevel),
+        rows: buildGradeRows(scopedStudents, SCHOOL_LEVELS[activeLevel].grades),
+      }];
+
+    // Get outstanding students (scoped)
+  const outstandingStudents = scopedStudents
     .filter(student => getRemainingBalance(student, settings.tuitionFees) > 0)
     .map(student => ({
       ...student,
@@ -83,8 +106,8 @@ function Reports() {
     }))
     .sort((a, b) => b.remaining - a.remaining);
 
-  // Get all students with their payment details
-  const studentsWithPayments = students
+    // Get all students with their payment details (scoped)
+  const studentsWithPayments = scopedStudents
     .map(student => {
       const tuition = settings.tuitionFees[student.gradeLevel] || 0;
       const totalPaid = getTotalPaid(student);
@@ -107,16 +130,16 @@ function Reports() {
     })
     .sort((a, b) => a.name.localeCompare(b.name, language === 'ar' ? 'ar' : 'en'));
 
-  // Calculate chart data
-  const totalCollected = calculateTotalCollected(students);
-  const totalOutstanding = calculateTotalOutstanding(students, settings.tuitionFees);
+    // Calculate chart data (scoped)
+  const totalCollected = calculateTotalCollected(scopedStudents);
+  const totalOutstanding = calculateTotalOutstanding(scopedStudents, settings.tuitionFees);
   const totalTuition = totalCollected + totalOutstanding;
 
-  // Status counts
+  // Status counts (scoped)
   const statusCounts = {
-    paid: students.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'paid').length,
-    partial: students.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'partial').length,
-    unpaid: students.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'unpaid').length,
+    paid: scopedStudents.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'paid').length,
+    partial: scopedStudents.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'partial').length,
+    unpaid: scopedStudents.filter(s => getPaymentStatus(s, settings.tuitionFees) === 'unpaid').length,
   };
 
   // Collection by grade chart data
@@ -199,8 +222,8 @@ function Reports() {
     ]
   };
 
-  // Payment method distribution
-  const paymentMethods = students.reduce((acc, student) => {
+    // Payment method distribution (scoped)
+  const paymentMethods = scopedStudents.reduce((acc, student) => {
     student.payments.forEach(payment => {
       acc[payment.method] = (acc[payment.method] || 0) + payment.amount;
     });
@@ -226,8 +249,8 @@ function Reports() {
     ]
   };
 
-  const handleExportExcel = () => {
-    exportToExcel(students, settings, t);
+    const handleExportExcel = () => {
+    exportToExcel(scopedStudents, settings, t);
   };
 
   const handlePrint = () => {
@@ -416,38 +439,49 @@ function Reports() {
                     <th>{t('collectionRate')}</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {gradeSummary.map(row => (
-                    <tr key={row.grade}>
-                      <td className="grade-name">{row.label}</td>
-                      <td>{row.studentCount}</td>
-                      <td>{formatCurrency(row.totalTuition, settings.currency)}</td>
-                      <td className="collected">{formatCurrency(row.totalCollected, settings.currency)}</td>
-                      <td className={row.totalOutstanding > 0 ? 'outstanding' : 'paid-text'}>
-                        {formatCurrency(row.totalOutstanding, settings.currency)}
-                      </td>
-                      <td>
-                        <div className="collection-rate">
-                          <div className="rate-bar">
-                            <div 
-                              className="rate-fill" 
-                              style={{ width: `${row.collectionRate}%` }}
-                            />
-                          </div>
-                          <span className="rate-text">{row.collectionRate.toFixed(1)}%</span>
-                        </div>
-                      </td>
-                    </tr>
+                                <tbody>
+                  {groupedGradeSummary.map(group => (
+                    <>
+                      {activeLevel === 'all' && (
+                        <tr key={`group-${group.levelKey}`} className="level-group-row">
+                          <td colSpan="6" className="level-group-header-cell">
+                            {group.levelLabel}
+                          </td>
+                        </tr>
+                      )}
+                      {group.rows.map(row => (
+                        <tr key={row.grade}>
+                          <td className="grade-name">{row.label}</td>
+                          <td>{row.studentCount}</td>
+                          <td>{formatCurrency(row.totalTuition, settings.currency)}</td>
+                          <td className="collected">{formatCurrency(row.totalCollected, settings.currency)}</td>
+                          <td className={row.totalOutstanding > 0 ? 'outstanding' : 'paid-text'}>
+                            {formatCurrency(row.totalOutstanding, settings.currency)}
+                          </td>
+                          <td>
+                            <div className="collection-rate">
+                              <div className="rate-bar">
+                                <div
+                                  className="rate-fill"
+                                  style={{ width: `${row.collectionRate}%` }}
+                                />
+                              </div>
+                              <span className="rate-text">{row.collectionRate.toFixed(1)}%</span>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
                   ))}
                 </tbody>
-                <tfoot>
+                                <tfoot>
                   <tr>
                     <td><strong>{t('total')}</strong></td>
-                    <td><strong>{students.length}</strong></td>
-                    <td><strong>{formatCurrency(calculateTotalOutstanding(students, settings.tuitionFees) + calculateTotalCollected(students), settings.currency)}</strong></td>
-                    <td><strong className="collected">{formatCurrency(calculateTotalCollected(students), settings.currency)}</strong></td>
-                    <td><strong className={calculateTotalOutstanding(students, settings.tuitionFees) > 0 ? 'outstanding' : 'paid-text'}>
-                      {formatCurrency(calculateTotalOutstanding(students, settings.tuitionFees), settings.currency)}
+                    <td><strong>{scopedStudents.length}</strong></td>
+                    <td><strong>{formatCurrency(totalTuition, settings.currency)}</strong></td>
+                    <td><strong className="collected">{formatCurrency(totalCollected, settings.currency)}</strong></td>
+                    <td><strong className={totalOutstanding > 0 ? 'outstanding' : 'paid-text'}>
+                      {formatCurrency(totalOutstanding, settings.currency)}
                     </strong></td>
                     <td></td>
                   </tr>
@@ -513,7 +547,9 @@ function Reports() {
       </p>
       
       {studentsWithPayments.length === 0 ? (
-        <div className="no-data">{t('noStudents')}</div>
+        <div className="no-data">
+          {activeLevel === 'all' ? t('noStudents') : t('noStudentsInLevel')}
+        </div>
       ) : (
         <div className="student-payments-container">
           {studentsWithPayments.map((student, index) => (
@@ -639,7 +675,7 @@ function Reports() {
               <div className="chart-summary">
                 <div className="chart-stat">
                   <span className="stat-label">{t('totalStudents')}:</span>
-                  <span className="stat-value">{students.length}</span>
+                  <span className="stat-value">{scopedStudents.length}</span>
                 </div>
               </div>
             </div>
@@ -712,7 +748,7 @@ function Reports() {
                 <div className="quick-stat-item">
                   <span className="stat-icon">👨‍🎓</span>
                   <div>
-                    <div className="stat-number">{students.length}</div>
+                    <div className="stat-number">{scopedStudents.length}</div>
                     <div className="stat-label-small">{t('totalStudents')}</div>
                   </div>
                 </div>
