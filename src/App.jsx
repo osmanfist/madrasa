@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { SettingsProvider } from './context/SettingsContext';
+import { SchoolLevelProvider } from './context/SchoolLevelContext';
 import { StudentProvider } from './context/StudentContext';
 import Layout from './components/Layout/Layout';
 import WelcomeAnimation from './components/WelcomeAnimation';
@@ -44,9 +45,11 @@ function App() {
   return (
     <LanguageProvider>
       <SettingsProvider>
-        <StudentProvider>
-          <AppContent />
-        </StudentProvider>
+        <SchoolLevelProvider>
+          <StudentProvider>
+            <AppContent />
+          </StudentProvider>
+        </SchoolLevelProvider>
       </SettingsProvider>
     </LanguageProvider>
   );

@@ -148,14 +148,38 @@ export const translations = {
   noStudents: 'No students found',
 
   // Add to the translations object
-"charts": "Charts & Analytics",
-"financialSummary": "Financial Summary",
-"paymentStatusDistribution": "Payment Status Distribution",
-"collectionByGrade": "Collection by Grade",
-"collectionRateTrend": "Collection Rate Trend",
-"paymentMethodDistribution": "Payment Method Distribution",
-"quickStats": "Quick Stats",
+  "charts": "Charts & Analytics",
+  "financialSummary": "Financial Summary",
+  "paymentStatusDistribution": "Payment Status Distribution",
+  "collectionByGrade": "Collection by Grade",
+  "collectionRateTrend": "Collection Rate Trend",
+  "paymentMethodDistribution": "Payment Method Distribution",
+  "quickStats": "Quick Stats",
 
+  // School Levels
+  allLevels: 'All Levels',
+  elementary: 'Elementary School',
+  middle: 'Middle School',
+  secondary: 'Secondary School',
+  selectLevel: 'Select Level',
+  filterByLevel: 'Filter by Level',
+  noStudentsInLevel: 'No students in this level',
+  breakdownByLevel: 'Breakdown by Level',
+
+  // Elementary Grades
+  'grade-1': 'Grade 1',
+  'grade-2': 'Grade 2',
+  'grade-3': 'Grade 3',
+  'grade-4': 'Grade 4',
+  'grade-5': 'Grade 5',
+  'grade-6': 'Grade 6',
+
+  // Middle School Grades
+  'grade-7': 'Grade 7',
+  'grade-8': 'Grade 8',
+  'grade-9': 'Grade 9',
+
+// Footer
 "contactUs": "Contact Us",
 "leadProgrammer": "Lead Programmer : Osman Mustafa",
 "ceo": "CEO : Mohammed Omer",
