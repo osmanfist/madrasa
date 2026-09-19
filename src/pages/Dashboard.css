@@ -192,6 +192,143 @@
   left: 0;
 }
 
+/* ===== Breakdown by Level ===== */
+.level-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.level-breakdown-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.level-breakdown-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.level-breakdown-title {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #1abc9c;
+}
+
+.level-breakdown-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.level-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.level-stat-label {
+  font-size: 0.7rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.level-stat-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.level-stat-value.collected {
+  color: #27ae60;
+}
+
+.level-stat-value.outstanding {
+  color: #e74c3c;
+}
+
+.level-stat-value.paid-text {
+  color: #27ae60;
+}
+
+.level-progress-bar {
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.level-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* ===== Grade Grouping (under "All Levels") ===== */
+.grade-level-group {
+  margin-bottom: 1.5rem;
+}
+
+.grade-level-group:last-child {
+  margin-bottom: 0;
+}
+
+.grade-level-header {
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.4rem;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px dashed #cfd6dd;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  color: #1abc9c;
+}
+
+.grade-level-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ===== Mobile adjustments ===== */
+@media (max-width: 768px) {
+  .level-breakdown-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .level-breakdown-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-breakdown-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .level-stat-value {
+    font-size: 0.85rem;
+  }
+
+  .level-breakdown-title {
+    font-size: 0.9rem;
+  }
+}
+
 /* Dashboard Columns */
 .dashboard-columns {
   display: grid;
