@@ -1,9 +1,12 @@
 export const loadSampleData = () => {
   const sampleStudents = [
-    // Original 6 students
+    // ============================================================
+    // SECONDARY (existing 26 students + schoolLevel tag)
+    // ============================================================
     {
       id: '1',
       name: 'أحمد محمد',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -21,6 +24,7 @@ export const loadSampleData = () => {
     {
       id: '2',
       name: 'فلان فرتكان العِلان',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -43,6 +47,7 @@ export const loadSampleData = () => {
     {
       id: '3',
       name: 'علي مقطع الدُمك',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -51,6 +56,7 @@ export const loadSampleData = () => {
     {
       id: '4',
       name: 'فاطمة ترطيبة الحفري',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -68,6 +74,7 @@ export const loadSampleData = () => {
     {
       id: '5',
       name: 'عمر إبراهيم فلس',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -76,6 +83,7 @@ export const loadSampleData = () => {
     {
       id: '6',
       name: 'فاتح ففتي ففتي',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -90,12 +98,10 @@ export const loadSampleData = () => {
       createdAt: '2024-09-01',
       updatedAt: '2024-09-18'
     },
-
-    // 20 New Students
-    // First Year Students (7 students)
     {
       id: '7',
       name: 'محمد عثمان الطيب',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -121,6 +127,7 @@ export const loadSampleData = () => {
     {
       id: '8',
       name: 'آمنة عبد الرحمن حسن',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -143,6 +150,7 @@ export const loadSampleData = () => {
     {
       id: '9',
       name: 'خالد أحمد البشير',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -151,6 +159,7 @@ export const loadSampleData = () => {
     {
       id: '10',
       name: 'سارة محمود عبد الله',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -168,6 +177,7 @@ export const loadSampleData = () => {
     {
       id: '11',
       name: 'إبراهيم علي نور',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -190,6 +200,7 @@ export const loadSampleData = () => {
     {
       id: '12',
       name: 'زينب محمد علي',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -198,6 +209,7 @@ export const loadSampleData = () => {
     {
       id: '13',
       name: 'حسن إبراهيم موسى',
+      schoolLevel: 'secondary',
       gradeLevel: 'first-year',
       payments: [
         {
@@ -220,11 +232,10 @@ export const loadSampleData = () => {
       createdAt: '2024-09-01',
       updatedAt: '2024-10-01'
     },
-
-    // Second Year Students (7 students)
     {
       id: '14',
       name: 'مريم عبد الله محمد',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -242,6 +253,7 @@ export const loadSampleData = () => {
     {
       id: '15',
       name: 'عبد الله علي كرار',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -264,6 +276,7 @@ export const loadSampleData = () => {
     {
       id: '16',
       name: 'فاطمة أحمد عمر',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -272,6 +285,7 @@ export const loadSampleData = () => {
     {
       id: '17',
       name: 'محمد الفاتح بشرى',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -302,6 +316,7 @@ export const loadSampleData = () => {
     {
       id: '18',
       name: 'رهام عوض محمد',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -319,6 +334,7 @@ export const loadSampleData = () => {
     {
       id: '19',
       name: 'طلحة عبد الرحمن العجب',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -327,6 +343,7 @@ export const loadSampleData = () => {
     {
       id: '20',
       name: 'آسيا محمدين عبد الله',
+      schoolLevel: 'secondary',
       gradeLevel: 'second-year',
       payments: [
         {
@@ -346,11 +363,10 @@ export const loadSampleData = () => {
       createdAt: '2024-09-01',
       updatedAt: '2024-09-07'
     },
-
-    // Third Year Students (6 students)
     {
       id: '21',
       name: 'بشير محمد الأمين',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -368,6 +384,7 @@ export const loadSampleData = () => {
     {
       id: '22',
       name: 'هدى محمد أحمد',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -390,6 +407,7 @@ export const loadSampleData = () => {
     {
       id: '23',
       name: 'عباس الحسن حامد',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -428,6 +446,7 @@ export const loadSampleData = () => {
     {
       id: '24',
       name: 'سمية محمد نور',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [],
       createdAt: '2024-09-01',
@@ -436,6 +455,7 @@ export const loadSampleData = () => {
     {
       id: '25',
       name: 'عاطف محمد الأمين',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -453,6 +473,7 @@ export const loadSampleData = () => {
     {
       id: '26',
       name: 'نورا عوض الكريم',
+      schoolLevel: 'secondary',
       gradeLevel: 'third-year',
       payments: [
         {
@@ -471,6 +492,429 @@ export const loadSampleData = () => {
       ],
       createdAt: '2024-09-01',
       updatedAt: '2024-09-06'
+    },
+
+    // ============================================================
+    // MIDDLE SCHOOL (grades 7–9) — 9 students
+    // ============================================================
+    {
+      id: '27',
+      name: 'يوسف إبراهيم الطيب',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-7',
+      payments: [
+        {
+          id: 'p27',
+          amount: 400000,
+          method: 'cash',
+          date: '2024-09-10',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-10'
+    },
+    {
+      id: '28',
+      name: 'رقية محمد الحسن',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-7',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '29',
+      name: 'معاذ عبد الله الأمين',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-7',
+      payments: [
+        {
+          id: 'p29',
+          amount: 800000,
+          method: 'bank',
+          date: '2024-09-05',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX112233',
+            bankName: 'بنك الخرطوم',
+            transferDate: '2024-09-05'
+          },
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-05'
+    },
+    {
+      id: '30',
+      name: 'سلمى عثمان النور',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-8',
+      payments: [
+        {
+          id: 'p30',
+          amount: 500000,
+          method: 'cash',
+          date: '2024-09-12',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-12'
+    },
+    {
+      id: '31',
+      name: 'خليل محمود بشير',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-8',
+      payments: [
+        {
+          id: 'p31',
+          amount: 300000,
+          method: 'cash',
+          date: '2024-09-18',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        },
+        {
+          id: 'p32',
+          amount: 300000,
+          method: 'bank',
+          date: '2024-10-02',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX445566',
+            bankName: 'بنك فيصل الإسلامي',
+            transferDate: '2024-10-02'
+          },
+          notes: 'دفعة ثانية'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-10-02'
+    },
+    {
+      id: '32',
+      name: 'ليلى عبد الرحيم',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-8',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '33',
+      name: 'أنس الطيب عبد القادر',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-9',
+      payments: [
+        {
+          id: 'p33',
+          amount: 1000000,
+          method: 'cash',
+          date: '2024-09-03',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-03'
+    },
+    {
+      id: '34',
+      name: 'تسنيم إدريس محمد',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-9',
+      payments: [
+        {
+          id: 'p34',
+          amount: 700000,
+          method: 'bank',
+          date: '2024-09-08',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX778899',
+            bankName: 'بنك أم درمان الوطني',
+            transferDate: '2024-09-08'
+          },
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-08'
+    },
+    {
+      id: '35',
+      name: 'مصعب الفاتح الأمين',
+      schoolLevel: 'middle',
+      gradeLevel: 'grade-9',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+
+    // ============================================================
+    // ELEMENTARY (grades 1–6) — 15 students
+    // ============================================================
+    {
+      id: '36',
+      name: 'ريان محمد الأمين',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-1',
+      payments: [
+        {
+          id: 'p36',
+          amount: 500000,
+          method: 'cash',
+          date: '2024-09-05',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-05'
+    },
+    {
+      id: '37',
+      name: 'جنى عثمان إبراهيم',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-1',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '38',
+      name: 'حمزة الطيب النور',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-1',
+      payments: [
+        {
+          id: 'p38',
+          amount: 300000,
+          method: 'cash',
+          date: '2024-09-12',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-12'
+    },
+    {
+      id: '39',
+      name: 'ملك محمود عبد الله',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-2',
+      payments: [
+        {
+          id: 'p39',
+          amount: 500000,
+          method: 'bank',
+          date: '2024-09-04',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX100200',
+            bankName: 'بنك الخرطوم',
+            transferDate: '2024-09-04'
+          },
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-04'
+    },
+    {
+      id: '40',
+      name: 'آدم عبد الرحمن محمد',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-2',
+      payments: [
+        {
+          id: 'p40',
+          amount: 200000,
+          method: 'cash',
+          date: '2024-09-15',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-15'
+    },
+    {
+      id: '41',
+      name: 'لين إبراهيم الأمين',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-2',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '42',
+      name: 'محمد عبد الله الطيب',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-3',
+      payments: [
+        {
+          id: 'p42',
+          amount: 600000,
+          method: 'cash',
+          date: '2024-09-06',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-06'
+    },
+    {
+      id: '43',
+      name: 'سارة عوض الكريم',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-3',
+      payments: [
+        {
+          id: 'p43',
+          amount: 300000,
+          method: 'bank',
+          date: '2024-09-10',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX300400',
+            bankName: 'بنك فيصل الإسلامي',
+            transferDate: '2024-09-10'
+          },
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-10'
+    },
+    {
+      id: '44',
+      name: 'عبد الله محمد الحسن',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-3',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '45',
+      name: 'هبة الطيب عبد القادر',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-4',
+      payments: [
+        {
+          id: 'p45',
+          amount: 600000,
+          method: 'cash',
+          date: '2024-09-07',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-07'
+    },
+    {
+      id: '46',
+      name: 'عمر إدريس محمد',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-4',
+      payments: [
+        {
+          id: 'p46',
+          amount: 300000,
+          method: 'cash',
+          date: '2024-09-14',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        },
+        {
+          id: 'p47',
+          amount: 200000,
+          method: 'cash',
+          date: '2024-10-10',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة ثانية'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-10-10'
+    },
+    {
+      id: '47',
+      name: 'ريم الفاتح النور',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-5',
+      payments: [
+        {
+          id: 'p47',
+          amount: 700000,
+          method: 'bank',
+          date: '2024-09-03',
+          receivedBy: 'محاسب المدرسة',
+          bankDetails: {
+            transactionNumber: 'TRX500600',
+            bankName: 'بنك أم درمان الوطني',
+            transferDate: '2024-09-03'
+          },
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-03'
+    },
+    {
+      id: '48',
+      name: 'زياد محمود بشير',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-5',
+      payments: [],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-01'
+    },
+    {
+      id: '49',
+      name: 'دانة عبد الرحيم عثمان',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-6',
+      payments: [
+        {
+          id: 'p49',
+          amount: 700000,
+          method: 'cash',
+          date: '2024-09-05',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة كاملة'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-05'
+    },
+    {
+      id: '50',
+      name: 'سامي إبراهيم عبد الله',
+      schoolLevel: 'elementary',
+      gradeLevel: 'grade-6',
+      payments: [
+        {
+          id: 'p50',
+          amount: 400000,
+          method: 'cash',
+          date: '2024-09-11',
+          receivedBy: 'محاسب المدرسة',
+          notes: 'دفعة أولى'
+        }
+      ],
+      createdAt: '2024-09-01',
+      updatedAt: '2024-09-11'
     }
   ];
 
@@ -478,6 +922,18 @@ export const loadSampleData = () => {
     schoolYear: '2024-2025',
     currency: 'SDG',
     tuitionFees: {
+      // Elementary
+      'grade-1': 500000,
+      'grade-2': 500000,
+      'grade-3': 600000,
+      'grade-4': 600000,
+      'grade-5': 700000,
+      'grade-6': 700000,
+      // Middle
+      'grade-7': 800000,
+      'grade-8': 900000,
+      'grade-9': 1000000,
+      // Secondary
       'first-year': 1000000,
       'second-year': 1200000,
       'third-year': 1500000,
@@ -487,34 +943,23 @@ export const loadSampleData = () => {
   localStorage.setItem('madrasa-students', JSON.stringify(sampleStudents));
   localStorage.setItem('madrasa-settings', JSON.stringify(sampleSettings));
   
-  // Calculate total tuition for all students
+  // Compute summary counts for the toast message
   const totalTuition = sampleStudents.reduce((sum, student) => {
     return sum + (sampleSettings.tuitionFees[student.gradeLevel] || 0);
   }, 0);
 
-  // Calculate total collected
   const totalCollected = sampleStudents.reduce((sum, student) => {
     return sum + student.payments.reduce((s, p) => s + p.amount, 0);
   }, 0);
 
-  // Calculate number of students by status
-  const statusCounts = {
-    paid: 0,
-    partial: 0,
-    unpaid: 0
-  };
-
+  const statusCounts = { paid: 0, partial: 0, unpaid: 0 };
   sampleStudents.forEach(student => {
     const tuition = sampleSettings.tuitionFees[student.gradeLevel] || 0;
     const paid = student.payments.reduce((s, p) => s + p.amount, 0);
     
-    if (paid >= tuition) {
-      statusCounts.paid++;
-    } else if (paid > 0) {
-      statusCounts.partial++;
-    } else {
-      statusCounts.unpaid++;
-    }
+    if (paid >= tuition) statusCounts.paid++;
+    else if (paid > 0) statusCounts.partial++;
+    else statusCounts.unpaid++;
   });
 
   return {

@@ -20,13 +20,10 @@ function Payments() {
 
   const allPayments = getAllPayments();
 
-  // Filter payments by active school level first (via student lookup)
+    // Filter payments by active school level (schoolLevel is now on each payment)
   const levelPayments = allPayments.filter(payment => {
     if (activeLevel === 'all') return true;
-    const student = students.find(s => s.id === payment.studentId);
-    if (!student) return false;
-    const studentLevel = student.schoolLevel || 'secondary';
-    return studentLevel === activeLevel;
+    return (payment.schoolLevel || 'secondary') === activeLevel;
   });
 
   // Then apply search + method filters

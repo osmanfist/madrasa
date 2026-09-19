@@ -124,7 +124,7 @@ export function StudentProvider({ children }) {
     return 'partial';
   };
 
-  // Get all payments sorted by date
+    // Get all payments sorted by date
   const getAllPayments = () => {
     const allPayments = [];
     students.forEach(student => {
@@ -133,7 +133,8 @@ export function StudentProvider({ children }) {
           ...payment,
           studentId: student.id,
           studentName: student.name,
-          gradeLevel: student.gradeLevel
+          gradeLevel: student.gradeLevel,
+          schoolLevel: student.schoolLevel || 'secondary',
         });
       });
     });
