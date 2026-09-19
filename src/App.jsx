@@ -14,6 +14,12 @@ import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 import './App.css';
 
+import { runMigrationsIfNeeded } from './utils/migrateData';
+
+// Run data migrations before React mounts so all providers
+// read migrated data on first render.
+runMigrationsIfNeeded();
+
 function AppContent() {
   const [showWelcome, setShowWelcome] = useState(true);
 
