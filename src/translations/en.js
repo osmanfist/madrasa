@@ -165,6 +165,7 @@ export const translations = {
   filterByLevel: 'Filter by Level',
   noStudentsInLevel: 'No students in this level',
   breakdownByLevel: 'Breakdown by Level',
+  "gradeCount": "grades",
 
   // Elementary Grades
   'grade-1': 'Grade 1',

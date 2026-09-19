@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSettings } from '../context/SettingsContext';
 import { useStudents } from '../context/StudentContext';
 import { useLanguage } from '../context/LanguageContext';
+import { SCHOOL_LEVELS, SCHOOL_LEVEL_KEYS } from '../utils/schoolLevels';
+import { formatCurrency } from '../utils/calculations';
 import { loadSampleData } from '../utils/loadSampleData';
 import { exportData, importData } from '../utils/dataBackup';
 import './Settings.css';
@@ -13,8 +15,20 @@ function Settings() {
   
   const [tuitionFees, setTuitionFees] = useState(settings.tuitionFees);
   const [schoolYear, setSchoolYear] = useState(settings.schoolYear);
-  const [message, setMessage] = useState('');
+    const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
+
+  // Which level groups are expanded in the Tuition Fees section.
+  // Default: all expanded so the accountant sees every grade at once.
+  const [expandedLevels, setExpandedLevels] = useState(() => {
+    const initial = {};
+    SCHOOL_LEVEL_KEYS.forEach(key => { initial[key] = true; });
+    return initial;
+  });
+
+  const toggleLevel = (levelKey) => {
+    setExpandedLevels(prev => ({ ...prev, [levelKey]: !prev[levelKey] }));
+  };
 
   useEffect(() => {
     setTuitionFees(settings.tuitionFees);
@@ -111,54 +125,60 @@ function Settings() {
         </div>
       )}
 
-      {/* Tuition Fees Section */}
+            {/* Tuition Fees Section — grouped by school level */}
       <div className="settings-card">
         <h3 className="settings-title">💰 {t('tuitionFeesSettings')}</h3>
         <p className="settings-description">{t('tuitionFeesDescription')}</p>
-        
-        <div className="tuition-fees-form">
-          <div className="fee-input-group">
-            <label>{t('firstYear')}</label>
-            <div className="fee-input-wrapper">
-              <input
-                type="number"
-                value={tuitionFees['first-year'] || 0}
-                onChange={(e) => handleTuitionChange('first-year', e.target.value)}
-                min="0"
-                step="0.01"
-              />
-              <span className="currency-label">{settings.currency}</span>
-            </div>
-          </div>
 
-          <div className="fee-input-group">
-            <label>{t('secondYear')}</label>
-            <div className="fee-input-wrapper">
-              <input
-                type="number"
-                value={tuitionFees['second-year'] || 0}
-                onChange={(e) => handleTuitionChange('second-year', e.target.value)}
-                min="0"
-                step="0.01"
-              />
-              <span className="currency-label">{settings.currency}</span>
-            </div>
-          </div>
+        {SCHOOL_LEVEL_KEYS.map(levelKey => {
+          const isOpen = expandedLevels[levelKey];
+          const grades = SCHOOL_LEVELS[levelKey].grades;
 
-          <div className="fee-input-group">
-            <label>{t('thirdYear')}</label>
-            <div className="fee-input-wrapper">
-              <input
-                type="number"
-                value={tuitionFees['third-year'] || 0}
-                onChange={(e) => handleTuitionChange('third-year', e.target.value)}
-                min="0"
-                step="0.01"
-              />
-              <span className="currency-label">{settings.currency}</span>
+          // Sum of fees in this group (for the header preview)
+          const levelTotal = grades.reduce(
+            (sum, g) => sum + (tuitionFees[g] || 0),
+            0
+          );
+
+          return (
+            <div key={levelKey} className="fees-level-group">
+              <button
+                type="button"
+                className={`fees-level-header ${isOpen ? 'open' : ''}`}
+                onClick={() => toggleLevel(levelKey)}
+                aria-expanded={isOpen}
+              >
+                <span className="fees-level-caret">{isOpen ? '▾' : '▸'}</span>
+                <span className="fees-level-name">{t(levelKey)}</span>
+                <span className="fees-level-meta">
+                  {grades.length} {t('gradeCount')} • {formatCurrency(levelTotal, settings.currency)}
+                </span>
+              </button>
+
+              {isOpen && (
+                <div className="fees-level-body">
+                  <div className="tuition-fees-form">
+                    {grades.map(gradeKey => (
+                      <div key={gradeKey} className="fee-input-group">
+                        <label>{t(gradeKey)}</label>
+                        <div className="fee-input-wrapper">
+                          <input
+                            type="number"
+                            value={tuitionFees[gradeKey] || 0}
+                            onChange={(e) => handleTuitionChange(gradeKey, e.target.value)}
+                            min="0"
+                            step="0.01"
+                          />
+                          <span className="currency-label">{settings.currency}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       {/* School Year Section */}

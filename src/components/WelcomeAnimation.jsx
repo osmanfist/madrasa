@@ -8,10 +8,10 @@ function WelcomeAnimation({ onComplete }) {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    // Start fade out after 6 seconds (shorter for better UX)
+    // Start fade out after 3 seconds (shorter for better UX)
     const fadeTimer = setTimeout(() => {
       setIsFading(true);
-    }, 6000);
+    }, 3000);
 
     // Complete after fade out
     const completeTimer = setTimeout(() => {

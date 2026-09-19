@@ -165,6 +165,7 @@ export const translations = {
   filterByLevel: 'تصفية حسب المرحلة',
   noStudentsInLevel: 'لا يوجد طلاب في هذه المرحلة',
   breakdownByLevel: 'التفصيل حسب المرحلة',
+  "gradeCount": "الصفوف",
 
   // صفوف المرحلة الابتدائية
   'grade-1': 'الصف الأول الابتدائي',

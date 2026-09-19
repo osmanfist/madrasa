@@ -5,11 +5,23 @@ const SettingsContext = createContext();
 const DEFAULT_SETTINGS = {
   schoolYear: '2025-2026',
   currency: 'SDG',
-  tuitionFees: {
-    'first-year': 800000,
-    'second-year': 900000,
-    'third-year': 1000000,
-  }
+      tuitionFees: {
+      // Elementary
+      'grade-1': 300000,
+      'grade-2': 300000,
+      'grade-3': 300000,
+      'grade-4': 500000,
+      'grade-5': 500000,
+      'grade-6': 500000,
+      // Middle
+      'grade-7': 700000,
+      'grade-8': 750000,
+      'grade-9': 800000,
+      // Secondary
+      'first-year': 800000,
+      'second-year': 900000,
+      'third-year': 1000000,
+    }
 };
 
 export function SettingsProvider({ children }) {

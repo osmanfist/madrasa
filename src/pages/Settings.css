@@ -336,3 +336,96 @@
     padding: 0.7rem;
   }
 }
+
+/* ===== Collapsible Tuition Groups ===== */
+.fees-level-group {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.fees-level-group:last-child {
+  margin-bottom: 0;
+}
+
+.fees-level-header {
+  width: 100%;
+  background: #f8f9fa;
+  border: none;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: start;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.fees-level-header:hover {
+  background: #eef2f6;
+}
+
+.fees-level-header.open {
+  background: #e8f5f1;
+  border-bottom: 1px solid #d3ebe4;
+  color: #148f77;
+}
+
+.fees-level-caret {
+  font-size: 0.75rem;
+  color: #6c757d;
+  width: 12px;
+  text-align: center;
+  display: inline-block;
+}
+
+.fees-level-header.open .fees-level-caret {
+  color: #1abc9c;
+}
+
+.fees-level-name {
+  flex: 1;
+}
+
+.fees-level-meta {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.fees-level-header.open .fees-level-meta {
+  color: #148f77;
+}
+
+.fees-level-body {
+  padding: 1rem 1rem 1.25rem;
+  background: #fff;
+  animation: feesBodyFade 0.2s ease;
+}
+
+@keyframes feesBodyFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Mobile: keep the header single-line but allow wrapping meta */
+@media (max-width: 480px) {
+  .fees-level-header {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .fees-level-meta {
+    font-size: 0.72rem;
+  }
+}
+
+/* RTL — caret should point opposite direction visually.
+   The characters ▾ and ▸ are already direction-neutral in most fonts,
+   so no flip needed. Header text alignment follows dir automatically. */
