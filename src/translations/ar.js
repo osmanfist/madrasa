@@ -1,7 +1,7 @@
 export const translations = {
   // App
   welcomeMessage: 'نظام إدارة المدفوعات المدرسية',
-  appName: 'نظام محاسبة مدرسة المثاني والمعارج الثانوية',
+  appName: 'نظام محاسبة مدارس المثاني والمعارج',
   dashboard: 'لوحة التحكم',
   students: 'الطلاب',
   payments: 'المدفوعات',

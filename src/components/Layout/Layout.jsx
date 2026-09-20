@@ -80,25 +80,25 @@ function Layout({ children }) {
             <div className="contact-item">
               <span className="contact-label">{t('leadProgrammer')}:</span>
               <a
-                href="https://wa.me/249XXXXXXXXX"
+                href="https://wa.me/249126726239"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-link"
               >
                 <span className="contact-icon">💻</span>
-                <span className="contact-number">+249 XXX XXX XXX</span>
+                <span className="contact-number">+249 126 726 239</span>
               </a>
             </div>
             <div className="contact-item">
               <span className="contact-label">{t('ceo')}:</span>
               <a
-                href="https://wa.me/249XXXXXXXXX"
+                href="https://wa.me/249111233014"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-link"
               >
                 <span className="contact-icon">👨‍💼</span>
-                <span className="contact-number">+249 XXX XXX XXX</span>
+                <span className="contact-number">+249 111 233 014</span>
               </a>
             </div>
           </div>
